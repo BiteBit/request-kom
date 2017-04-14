@@ -1,6 +1,6 @@
 {
   "name": "request-kom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,11 @@
   "license": "ISC",
   "engines": {
     "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "debug": "^2.6.3",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
   }
 }
