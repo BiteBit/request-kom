@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const assert = require('assert');
 const request = require('request-promise');
-const Debug = require('debug')('request-kom');
+const debug = require('debug')('request-kom');
 
 class RequestKom {
   constructor(opts = {}) {
@@ -173,13 +173,25 @@ class RequestKom {
     });
   }
 
-  findById(id) {
+  /**
+   * Mongo findById
+   * @param {string} id
+   * @param {object} query
+   *  query.fields   string
+   *  query.populate string
+   */
+  findById(id, query) {
     return this.go({
       method: 'GET',
       url: `/${encodeURIComponent(id)}`,
+      qs: query,
     });
   }
 
+  /**
+   * Mongo removeById
+   * @param {string} id
+   */
   removeById(id) {
     return this.go({
       method: 'DELETE',
@@ -187,6 +199,12 @@ class RequestKom {
     });
   }
 
+  /**
+   * Mongo updateById
+   * @param {string} id
+   * @param {options} object
+   * @param {update} object
+   */
   updateById(id, options, update) {
     return this.go({
       method: 'PUT',
