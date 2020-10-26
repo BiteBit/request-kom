@@ -72,7 +72,7 @@ class RequestKom {
    */
   remove(where) {
     return this.go({
-      method: 'GET',
+      method: 'DELETE',
       url: '/',
       qs: {
         where,
@@ -88,7 +88,7 @@ class RequestKom {
    */
   update(where, options, update) {
     return this.go({
-      method: 'GET',
+      method: 'PUT',
       url: '/',
       qs: {
         where,
